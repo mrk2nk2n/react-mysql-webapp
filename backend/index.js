@@ -21,9 +21,14 @@ const db = mysql.createConnection({
 // ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Youdk!mysql94'
 
 app.use(express.json()) // allow to send any json file using client
-app.use(cors())
+//app.use(cors())
+app.use(cors({
+    credentials: true,
+    origin: true,
+    methods: 'GET,PUT,POST,DELETE'
+}));
 
-app.get("/api/", (req,res)=>{
+app.get("/api", (req,res)=>{
     res.json("hello this is the backend");
 })
 
