@@ -18,15 +18,19 @@ const db = mysql.createConnection({
 app.use(express.json()) // allow to send any json file using client
 app.use(cors())
 
-app.get("/", (req,res)=>{
+app.get("/api/", (req,res)=>{
     res.json("hello this is the backend");
 })
 
-app.get("/books", (req,res)=>{
+app.get("/api/books", (req,res)=>{
     const q = "SELECT * FROM books"
     db.query(q,(err,data)=>{
-        if(err) return res.json(err);
-        return res.json(data);
+        //if(err) return res.json(err);
+        //return res.json(data);
+        if (err) {
+            console.log(err);
+        }
+        res.status(200).json(data);
     })
 })
 
@@ -35,7 +39,7 @@ app.get("/books", (req,res)=>{
 // one file for the books etc..
 // for now, we keep it all within one file
 
-app.post("/books", (req,res)=>{
+app.post("/api/books", (req,res)=>{
     const q = "INSERT INTO books (`title`, `desc`, `price`, `cover`) VALUES (?)"; // question mark provides additional security
     const values = [
         req.body.title,
@@ -50,7 +54,7 @@ app.post("/books", (req,res)=>{
     });
 });
 
-app.put("/books/:id", (req,res)=>{
+app.put("/api/books/:id", (req,res)=>{
     const bookId = req.params.id
     const q = "UPDATE books SET `title` = ?, `desc` = ?, `price` = ?, `cover` = ? WHERE id = ?"; // question mark provides additional security
     
@@ -67,7 +71,7 @@ app.put("/books/:id", (req,res)=>{
     });
 });
 
-app.delete("/books/:id" , (req,res)=>{
+app.delete("/api/books/:id" , (req,res)=>{
     const bookId = req.params.id
     const q = "DELETE FROM test.books WHERE id = (?)"
 

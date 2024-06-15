@@ -9,7 +9,8 @@ const Books = () => {
     useEffect(()=>{
         const fetchAllBooks = async ()=>{
             try{
-                const res = await axios.get("http://localhost:8800/books")
+                //const res = await axios.get("http://127.0.0.1:8800/api/books")
+                const res = await axios.get("http://localhost:8800/api/books")
                 setBooks(res.data)
             }catch(err){
                 console.log(err)
@@ -20,7 +21,7 @@ const Books = () => {
 
     const handleDelete = async (id) => {
         try{
-            await axios.delete("http://localhost:8800/books/"+id);
+            await axios.delete("http://localhost:8800/api/books/"+id);
             window.location.reload();
         }catch(err){
             console.log(err)
@@ -43,7 +44,7 @@ const Books = () => {
             ))}
         </div>
         <div className="newBook">
-            <button className="add-NewBook"><Link to="/add">Add new book</Link></button>
+            <button className="add-NewBook"><Link to="/add">Add book</Link></button>
         </div>
     </div>
   )
