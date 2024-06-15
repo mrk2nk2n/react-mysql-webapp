@@ -1,0 +1,23 @@
+# Ignore log files
+*.log
+
+# Ignore node_modules directory
+node_modules/
+backend/node_modules/
+client/node_modules/
+
+# Ignore build directory
+/build/
+
+# Ignore all .env files
+*.env
+
+# Ignore all .tmp files
+*.tmp
+
+# Ignore all files that start with ~$act
+~$act*
+
+# Ignore all files in the data directory except important.txt
+#/data/*
+#!/data/important.txt
