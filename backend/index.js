@@ -6,10 +6,10 @@ const app = express()
 
 const db = mysql.createConnection({
     host:"localhost",
+    port: "3306",
     user:"root",
-    password:"Youdk!mysql94",
-    database:"test",
-    port: 3306
+    password:"Password!",
+    database:"test"
 })
 
 // if there is a auth problem
