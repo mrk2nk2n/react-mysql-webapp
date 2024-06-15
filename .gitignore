@@ -7,7 +7,7 @@ backend/node_modules/
 client/node_modules/
 
 # Ignore build directory
-/build/
+# /build/
 
 # Ignore all .env files
 #*.env
