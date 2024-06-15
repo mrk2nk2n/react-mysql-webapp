@@ -13,4 +13,5 @@ INSERT INTO `test`.`books` (`id`, `title`, `desc`, `cover`) VALUES ("2", "title2
 use test;
 SELECT * FROM books;
 
+ALTER TABLE `test`.`books` ADD COLUMN `price` INT NOT NULL AFTER `desc`;
 
