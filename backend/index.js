@@ -8,7 +8,8 @@ const db = mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"Youdk!mysql94",
-    database:"test"
+    database:"test",
+    port: 3306
 })
 
 // if there is a auth problem
