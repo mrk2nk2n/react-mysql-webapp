@@ -5,10 +5,15 @@ import cors from "cors"
 const app = express()
 
 const db = mysql.createConnection({
-    host:"localhost",
-    port: "3306",
-    user:"root",
-    password:"Password!",
+    // host:"localhost",
+    // port: "3306",
+    // user:"root",
+    // password:"Password!",
+    // database:"test"
+    host:"hare-sankaran-rv-1.cteoyuw2qfur.ap-southeast-1.rds.amazonaws.com",
+    port:"3306",
+    user:"admin",
+    password:"Password",
     database:"test"
 })
 
