@@ -10,7 +10,7 @@ client/node_modules/
 # /build/
 
 # Ignore all .env files
-*.env
+# *.env
 backend/.env
 
 # Ignore all .tmp files
