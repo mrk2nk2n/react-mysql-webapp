@@ -22,7 +22,8 @@ const Books = () => {
             try{
                 //const res = await axios.get("http://127.0.0.1:8800/api/books")
                 // const res = await axios.get("http://localhost:8800/books")
-                const res = await axios.get("http://ec2-54-251-171-91.ap-southeast-1.compute.amazonaws.com/api/books")
+                const res = await axios.get("http://ec2-54-251-171-91.ap-southeast-1.compute.amazonaws.com:8800/books")
+                // const res = await axios.get("http://ec2-54-251-171-91.ap-southeast-1.compute.amazonaws.com/api/books")
                 // const res = await axios.get("http://library.k-lam.xyz/api/books")
                 setBooks(res.data)
             }catch(err){
@@ -35,7 +36,8 @@ const Books = () => {
     const handleDelete = async (id) => {
         try{
             // await axios.delete("http://localhost:8800/api/books/"+id);
-            await axios.delete("http://library.k-lam.xyz/api/books/"+id);
+            await axios.delete("http://ec2-54-251-171-91.ap-southeast-1.compute.amazonaws.com:8800/books/"+id);
+            // await axios.delete("http://library.k-lam.xyz/api/books/"+id);
             window.location.reload();
         }catch(err){
             console.log(err)

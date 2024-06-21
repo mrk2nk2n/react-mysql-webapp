@@ -23,7 +23,8 @@ const Add = () => {
         e.preventDefault()
         try{
             // await axios.post("http://localhost:8800/api/books",book)
-            await axios.post("http://library.k-lam.xyz/api/books",book)
+            await axios.post("http://ec2-54-251-171-91.ap-southeast-1.compute.amazonaws.com:8800/books",book)
+            // await axios.post("http://library.k-lam.xyz/api/books",book)
             navigate("/")
         }catch(err){
             console.log(err)

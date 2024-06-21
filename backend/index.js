@@ -2,25 +2,18 @@ import express from "express"
 // import mysql from "mysql"
 import mysql from "mysql2"
 import cors from "cors"
+import dotenv from 'dotenv';
 
 const app = express()
 
+dotenv.config();
+
 const db = mysql.createConnection({
-    // host:"localhost",
-    // port: "3306",
-    // user:"root",
-    // password:"Password!",
-    // database:"test"
-    // host:"hare-sankaran-rv-1.cteoyuw2qfur.ap-southeast-1.rds.amazonaws.com",
-    // port:"3306",
-    // user:"admin",
-    // password:"Password",
-    // database:"test"
-    host:"18.140.59.30",
-    port:"3306",
-    user:"admin",
-    password:"Youdk!mysql24",
-    database:"test"
+    host:process.env.DB_HOST,
+    port:process.env.DB_PORT,
+    user:process.env.DB_USER,
+    password:process.env.DB_PASSWORD,
+    database:process.env.DB_NAME,
 })
 
 // if there is a auth problem

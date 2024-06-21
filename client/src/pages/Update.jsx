@@ -28,7 +28,8 @@ const Update = () => {
         e.preventDefault()
         try{
             // await axios.put("http://localhost:8800/api/books/"+ bookId, book)
-            await axios.put("http://library.k-lam.xyz/api/books/"+ bookId, book)
+            await axios.put("http://ec2-54-251-171-91.ap-southeast-1.compute.amazonaws.com:8800/books/"+ bookId, book)
+            // await axios.put("http://library.k-lam.xyz/api/books/"+ bookId, book)
             navigate("/") // navigate back to home
         }catch(err){
             console.log(err)
