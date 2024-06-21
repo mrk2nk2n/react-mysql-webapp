@@ -7,6 +7,13 @@ import axios from 'axios';
 //     baseURL: ''
 // })
 
+// const config = {
+//     headers: {
+//         'Authorization': 'Bearer token123',
+//         'Content-Type': 'application/json'
+//     }
+// }
+
 const Books = () => {
     const [books,setBooks] = useState([])
     
@@ -14,7 +21,8 @@ const Books = () => {
         const fetchAllBooks = async ()=>{
             try{
                 //const res = await axios.get("http://127.0.0.1:8800/api/books")
-                const res = await axios.get("http://localhost:8800/api/books")
+                // const res = await axios.get("http://localhost:8800/api/books")
+                const res = await axios.get("http://library.k-lam.xyz/api/books")
                 setBooks(res.data)
             }catch(err){
                 console.log(err)
@@ -25,7 +33,8 @@ const Books = () => {
 
     const handleDelete = async (id) => {
         try{
-            await axios.delete("http://localhost:8800/api/books/"+id);
+            // await axios.delete("http://localhost:8800/api/books/"+id);
+            await axios.delete("http://library.k-lam.xyz/api/books/"+id);
             window.location.reload();
         }catch(err){
             console.log(err)
