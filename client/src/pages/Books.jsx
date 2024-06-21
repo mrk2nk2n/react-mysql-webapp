@@ -21,8 +21,9 @@ const Books = () => {
         const fetchAllBooks = async ()=>{
             try{
                 //const res = await axios.get("http://127.0.0.1:8800/api/books")
-                // const res = await axios.get("http://localhost:8800/api/books")
-                const res = await axios.get("http://library.k-lam.xyz/api/books")
+                // const res = await axios.get("http://localhost:8800/books")
+                const res = await axios.get("http://ec2-54-251-171-91.ap-southeast-1.compute.amazonaws.com/api/books")
+                // const res = await axios.get("http://library.k-lam.xyz/api/books")
                 setBooks(res.data)
             }catch(err){
                 console.log(err)

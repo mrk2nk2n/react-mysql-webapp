@@ -17,3 +17,5 @@ ALTER TABLE `test`.`books` ADD COLUMN `price` INT NOT NULL AFTER `desc`;
 
 INSERT INTO `test`.`books` (`id`, `title`, `desc`, `price`, `cover`) VALUES ("3", "title3", "desc3","3", "cover3.png");
 
+use test;
+SELECT * FROM books;

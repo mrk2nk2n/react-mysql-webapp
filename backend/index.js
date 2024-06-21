@@ -1,5 +1,6 @@
 import express from "express"
-import mysql from "mysql"
+// import mysql from "mysql"
+import mysql from "mysql2"
 import cors from "cors"
 
 const app = express()
@@ -15,7 +16,7 @@ const db = mysql.createConnection({
     // user:"admin",
     // password:"Password",
     // database:"test"
-    host:"ec2-18-140-59-30.ap-southeast-1.compute.amazonaws.com",
+    host:"18.140.59.30",
     port:"3306",
     user:"admin",
     password:"Youdk!mysql24",
@@ -39,12 +40,12 @@ app.get("/", (req,res)=>{
 app.get("/books", (req,res)=>{
     const q = "SELECT * FROM books"
     db.query(q,(err,data)=>{
-        //if(err) return res.json(err);
-        //return res.json(data);
-        if (err) {
-            console.log(err);
-        }
-        res.status(200).json(data);
+        if(err) return res.json(err);
+        return res.json(data);
+        // if (err) {
+        //     console.log(err);
+        // }
+        // res.status(200).json(data);
     })
 })
 
@@ -53,7 +54,7 @@ app.get("/books", (req,res)=>{
 // one file for the books etc..
 // for now, we keep it all within one file
 
-app.post("/api/books", (req,res)=>{
+app.post("/books", (req,res)=>{
     const q = "INSERT INTO books (`title`, `desc`, `price`, `cover`) VALUES (?)"; // question mark provides additional security
     const values = [
         req.body.title,
@@ -68,7 +69,7 @@ app.post("/api/books", (req,res)=>{
     });
 });
 
-app.put("/api/books/:id", (req,res)=>{
+app.put("/books/:id", (req,res)=>{
     const bookId = req.params.id
     const q = "UPDATE books SET `title` = ?, `desc` = ?, `price` = ?, `cover` = ? WHERE id = ?"; // question mark provides additional security
     
@@ -85,7 +86,7 @@ app.put("/api/books/:id", (req,res)=>{
     });
 });
 
-app.delete("/api/books/:id" , (req,res)=>{
+app.delete("/books/:id" , (req,res)=>{
     const bookId = req.params.id
     const q = "DELETE FROM test.books WHERE id = (?)"
 
